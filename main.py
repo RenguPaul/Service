@@ -16,7 +16,6 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 import threading
 from datetime import datetime
 user = os.getlogin()
-print(user)
 from threading import Timer
 from Choice import Ui_Dialog
 import PyPDF2
@@ -389,7 +388,6 @@ class Hand_delete_window(QMainWindow, Ui_MainWindow10):
         with open('Strange_files.txt', mode='r+', encoding='utf-8') as f:
             try:
                 f.write(f'{self.plainTextEdit.toPlainText()}')
-                print(f.read())
             except:
                 pass
 
