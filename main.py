@@ -372,12 +372,22 @@ class Hand_delete_window(QMainWindow, Ui_MainWindow10):
         with open('Strange_files.txt', mode='r', encoding='utf-8') as f:
             a = f.read()
             a = a.split('\n')
+            list_of_del_files = []
             for i in a:
+                list_of_del_files.append(i)
                 try:
                     if os.path.exists(i):
                         os.remove(i)
                 except:
                     pass
+            try:
+                with open('log.txt', mode='a', encoding='utf-8') as file:
+                    for i in list_of_del_files:
+                        file.write(i)
+                        file.write(f' был удалён в {datetime.now()}')
+                        file.write('\n')
+            except:
+                pass
         with open('Strange_files.txt', mode='w', encoding='utf-8') as f:
             f.write('')
         self.plainTextEdit.setPlainText('')
@@ -510,6 +520,9 @@ def index_of_files(files):
                             if const == False:
                                 try:
                                     os.remove(file)
+                                    with open('log.txt', mode='a', encoding='utf-8') as filik:
+                                        filik.write(str(file))
+                                        filik.write('\n')
                                     break
                                 except:
                                     pass
@@ -551,6 +564,9 @@ def index_of_files(files):
                             if const == False:
                                 try:
                                     os.remove(file)
+                                    with open('log.txt', mode='a', encoding='utf-8') as filik:
+                                        filik.write(str(file))
+                                        filik.write('\n')
                                     break
                                 except:
                                     pass
@@ -580,6 +596,9 @@ def index_of_files(files):
                             if const == False:
                                 try:
                                     os.remove(file)
+                                    with open('log.txt', mode='a', encoding='utf-8') as filik:
+                                        filik.write(str(file))
+                                        filik.write('\n')
                                     break
                                 except:
                                     pass
@@ -608,6 +627,9 @@ def index_of_files(files):
                             if const == False:
                                 try:
                                     os.remove(file)
+                                    with open('log.txt', mode='a', encoding='utf-8') as filik:
+                                        filik.write(str(file))
+                                        filik.write('\n')
                                     break
                                 except:
                                     pass
